@@ -1,14 +1,29 @@
-
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import WishlistContainer from './components/WishlistContainer';
+import FrontPageContainer from './components/FrontPageContainer';
 
 function App() {
   return (
-    <div>
- 
-          Let's our project started
+    <Router>
 
- 
-    </div>
+      <Navbar />
+
+      <Switch>
+    
+        <Route path="/wishes">
+          <WishlistContainer />
+        </Route>
+        <Route path="/">
+          <FrontPageContainer />
+        </Route>
+      </Switch>
+      
+    </Router>
   );
 }
 
