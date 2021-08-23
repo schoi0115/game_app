@@ -6,6 +6,7 @@ import {
 import Navbar from './components/Navbar';
 import WishlistContainer from './components/WishlistContainer';
 import FrontPageContainer from './components/FrontPageContainer';
+import Body from './components/Body';
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
           <FrontPageContainer />
         </Route>
       </Switch>
-      
+      <Body/>
     </Router>
+   
   );
 }
 
