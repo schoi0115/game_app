@@ -45,12 +45,12 @@ const GameList = ({game, setGames, deleteItem, onUpdateGame}) => {
 
 
     return (
-
-      <div>
-      <h3>{game.name}</h3>
-      <h3>{game.release_date}</h3>
-      <h3>{game.price}</h3>
-      <h3>{game.genre}</h3>
+      
+      <div >
+      <h3>Game Name: {game.name}</h3>
+      <h3>Release Date{game.release_date}</h3>
+      <h3>Price: ${game.price}</h3>
+      <h3>Genre: {game.genre}</h3>
       <img src={game.image}></img>
 
                   <button onClick={handleDeleteClick}>Delete</button>
