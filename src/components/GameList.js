@@ -5,7 +5,12 @@ import {Container,Row, Col, Card} from 'react-bootstrap'
 
 
 
-const GameList = ({game, setGames, deleteItem}) => {
+const GameList = ({game, setGames, deleteItem, onUpdateGame}) => {
+
+  const [updatedName, setUpdatedName] = useState("");
+  const [upDatedReleaseDate, setUpdatedReleaseDate] = useState("");
+  const [updatedPrice, setUpdatedPrice] = useState("");
+  
 
 
   function handleDeleteClick() {
@@ -14,6 +19,26 @@ const GameList = ({game, setGames, deleteItem}) => {
     });
     deleteItem(game.id);
   }
+
+
+  function handleGameFormSubmit(e) {
+    e.preventDefault();
+    fetch(`http://localhost:9292/games/${game.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ 
+        name: updatedName,
+        release_date: upDatedReleaseDate,
+        price: updatedPrice, 
+    }),
+    })
+      .then((r) => r.json())
+      .then((newGame) => {onUpdateGame(newGame);
+      });
+  }
+
 
     return (
        
@@ -24,7 +49,28 @@ const GameList = ({game, setGames, deleteItem}) => {
            <Card.Text>
                 <li>Release date: {game.release_date}</li>
                 <li>Price: {game.price}</li>
-                <button onClick={handleDeleteClick}>Delete</button>
+                  <button onClick={handleDeleteClick}>Delete</button>
+                  <form onSubmit={handleGameFormSubmit}>
+                  <input
+                  type="text"
+                  placeholder="Game title"
+                  value={updatedName}
+                  onChange={(e) => setUpdatedName(e.target.value)}
+                  />
+                  <input
+                  type="text"
+                  placeholder="Price"
+                  value={upDatedReleaseDate}
+                  onChange={(e) => setUpdatedReleaseDate(e.target.value)}
+                  />
+                  <input
+                  type="number"
+                  placeholder="Date"
+                  value={updatedPrice}
+                  onChange={(e) => setUpdatedPrice(e.target.value)}
+                  />
+                  <button type="submit" >Save</button>
+                </form>
            </Card.Text>
          </Card.Body>
        </Card>

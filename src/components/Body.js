@@ -41,13 +41,28 @@ const Body = () => {
         },
         body: JSON.stringify({
             name: name,
-            releaseDate: releaseDate,
+            release_date: releaseDate,
             price: price,
         }),
         })
         .then((r) => r.json())
         .then((newGame) => onAddGame(newGame));
     }
+      
+
+
+    function onUpdateGame(updatedGame) {
+        const updatedGamesArray = games.map((game) => {
+          if (game.id === updatedGame.id) {
+            return updatedGame;
+          } else {
+            return game;
+          }
+        });
+        setGames(updatedGamesArray);
+      }
+
+
       
     return (
         <div>
@@ -90,6 +105,8 @@ const Body = () => {
                     game={game}
                     deleteItem={deleteItem}
                     setGame={setGames}
+                    onUpdateGame={onUpdateGame}
+                    
                     />
                     ))}
                     
