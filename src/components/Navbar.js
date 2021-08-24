@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <div>
+    <div className='centering'>
       <nav className= "NavLink">
         <NavLink to="/">Front</NavLink>
         <NavLink  to="/wishes">Wishes</NavLink>

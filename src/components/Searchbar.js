@@ -7,7 +7,7 @@ const Searchbar = ({setSearch}) => {
     }
     
     return (
-        <div>
+        <div className='centering'>
             <label>
                 <input
                 type="text"
