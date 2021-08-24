@@ -8,12 +8,8 @@ const Randomizer = ({game, deleteItem}) => {
     console.log('clicked!')
     }
 
-    function handleDeleteClick() {
-        fetch(`http://localhost:9292/games/${game.id}`, {
-          method: "DELETE",
-        });
-        deleteItem(game.id);
-      }
+
+
 
     return (
         <Container>
@@ -30,6 +26,7 @@ const Randomizer = ({game, deleteItem}) => {
                         <Card.Text>
                         This game is about blah blah blah blah blah blah blah blah blah blah 
                         </Card.Text>
+                       
                         </Card.Body>
                     </Card>
                 </Col>

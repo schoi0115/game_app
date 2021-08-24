@@ -13,11 +13,8 @@ import Searchbar from './components/Searchbar';
 function App() {
   return (
     <Router>
-
       <Navbar />
-      
       <Switch>
-    
         <Route path="/wishes">
           <WishlistContainer />
         </Route>

@@ -1,8 +1,13 @@
 import React from 'react'
+import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import {Container,Row, Col, Card} from 'react-bootstrap'
 
-const GameList = ({game, deleteItem}) => {
+
+
+const GameList = ({game, setGames, deleteItem}) => {
+
+
   function handleDeleteClick() {
     fetch(`http://localhost:9292/games/${game.id}`, {
       method: "DELETE",
@@ -10,28 +15,8 @@ const GameList = ({game, deleteItem}) => {
     deleteItem(game.id);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("http://localhost:9292/games", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        comment: comment,
-        score: score,
-        user_id: userId,
-        game_id: gameId,
-      }),
-    })
-      .then((r) => r.json())
-      .then((newReview) => onAddReview(newReview));
-  }
-
-
-
     return (
-        
+       
          <Card style={{ width: '18rem' }}>
          <Card.Img variant="top" src="https://thumbs.dreamstime.com/b/video-game-controller-doodle-hand-drawn-vector-illustration-63395075.jpg" />
          <Card.Body>
@@ -43,7 +28,7 @@ const GameList = ({game, deleteItem}) => {
            </Card.Text>
          </Card.Body>
        </Card>
-       
+        
     )
 }
 
