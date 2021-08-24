@@ -1,23 +1,34 @@
-import { useState } from 'react'
-
-const testBakcEnd = () => {
-const url = `http://localhost:9292/games`
-    
-fetch(url)
-.then(r=>r.json())
-.then(console.log)
-
-}
+import './App.css'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import WishlistContainer from './components/WishlistContainer';
+import FrontPageContainer from './components/FrontPageContainer';
+import Body from './components/Body';
+import Searchbar from './components/Searchbar';
 
 function App() {
-
   return (
-    <div>
-      <header>
-        <button onClick={testBakcEnd}>fetch button</button>
-      </header>
-    </div>
-  )
+    <Router>
+
+      <Navbar />
+      
+      <Switch>
+    
+        <Route path="/wishes">
+          <WishlistContainer />
+        </Route>
+        <Route path="/">
+          <FrontPageContainer />
+        </Route>
+      </Switch>
+      <Body/>
+    </Router>
+   
+  );
 }
 
 export default App;
