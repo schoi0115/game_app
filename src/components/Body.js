@@ -14,7 +14,8 @@ const Body = () => {
     const [name, setName] = useState("");
     const [releaseDate, setReleaseDate] = useState("");
     const [price, setPrice] = useState("");
-
+    const [image, setImage] = useState("");
+    const [genre, setGenre] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:9292/games")
@@ -43,6 +44,8 @@ const Body = () => {
             name: name,
             release_date: releaseDate,
             price: price,
+            image: image,
+            genre: genre
         }),
         })
         .then((r) => r.json())
@@ -87,8 +90,21 @@ const Body = () => {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 />
-                <button type="submit" >Save</button>
+                <input
+                type="string"
+                placeholder="genre"
+                value={genre}
+                onChange={(e) => setGenre(e.target.value)}
+                />
+                <input
+                type="string"
+                placeholder="Image"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                />
                 </form>
+                <button type="submit" >Save</button>
+       
             </div>
             <h1>Game List </h1>
             {games.map(game => (
@@ -106,7 +122,7 @@ const Body = () => {
                     deleteItem={deleteItem}
                     setGame={setGames}
                     onUpdateGame={onUpdateGame}
-                    
+
                     />
                     ))}
                     
