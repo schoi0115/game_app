@@ -1,8 +1,20 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
+import { useState } from 'react';
+// import 'bootstrap/dist/css/bootstrap.css'
 import {Container,Row, Col, Card} from 'react-bootstrap'
 
-const GameList = ({game, deleteItem}) => {
+
+
+const GameList = ({game, setGames, deleteItem, onUpdateGame}) => {
+
+  const [updatedName, setUpdatedName] = useState("");
+  const [upDatedReleaseDate, setUpdatedReleaseDate] = useState("");
+  const [updatedPrice, setUpdatedPrice] = useState("");
+  const [updateImage, setupdateImage] = useState("");
+  const [updateUpdateGenre, setUpdateUpdateGenre] = useState("");
+  
+
+
   function handleDeleteClick() {
     fetch(`http://localhost:9292/games/${game.id}`, {
       method: "DELETE",
@@ -10,40 +22,83 @@ const GameList = ({game, deleteItem}) => {
     deleteItem(game.id);
   }
 
-  function handleSubmit(e) {
+
+  function handleGameFormSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:9292/games", {
-      method: "POST",
+    fetch(`http://localhost:9292/games/${game.id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        comment: comment,
-        score: score,
-        user_id: userId,
-        game_id: gameId,
-      }),
+      body: JSON.stringify({ 
+        name: updatedName,
+        release_date: upDatedReleaseDate,
+        price: updatedPrice,
+        image: updateImage, 
+        genre: updateUpdateGenre
+    }),
     })
       .then((r) => r.json())
-      .then((newReview) => onAddReview(newReview));
+      .then((newGame) => {onUpdateGame(newGame);
+      });
   }
 
 
-
     return (
-        
-         <Card style={{ width: '18rem' }}>
-         <Card.Img variant="top" src="https://thumbs.dreamstime.com/b/video-game-controller-doodle-hand-drawn-vector-illustration-63395075.jpg" />
-         <Card.Body>
-           <Card.Title>{game.name}</Card.Title>
-           <Card.Text>
-                <li>Release date: {game.release_date}</li>
-                <li>Price: {game.price}</li>
-                <button onClick={handleDeleteClick}>Delete</button>
-           </Card.Text>
-         </Card.Body>
-       </Card>
+      
+      <div >
+      <h3>Game Name: {game.name}</h3>
+      <h3>Release Date{game.release_date}</h3>
+      <h3>Price: ${game.price}</h3>
+      <h3>Genre: {game.genre}</h3>
+      <img src={game.image}></img>
+
+                  <button onClick={handleDeleteClick}>Delete</button>
+                  <form onSubmit={handleGameFormSubmit}>
+                  <input
+                  type="text"
+                  placeholder="Game title"
+                  value={updatedName}
+                  onChange={(e) => setUpdatedName(e.target.value)}
+                  />
+                  <input
+                  type="text"
+                  placeholder="Price"
+                  value={upDatedReleaseDate}
+                  onChange={(e) => setUpdatedReleaseDate(e.target.value)}
+                  />
+                  <input
+                  type="number"
+                  placeholder="Date"
+                  value={updatedPrice}
+                  onChange={(e) => setUpdatedPrice(e.target.value)}
+                  />
+                  <input
+                  type="string"
+                  placeholder="Image"
+                  value={updateImage}
+                  onChange={(e) => setupdateImage(e.target.value)}
+                  />
+                     <input
+                  type="string"
+                  placeholder="Genre"
+                  value={updateUpdateGenre}
+                  onChange={(e) => setUpdateUpdateGenre(e.target.value)}
+                  />
+                  <button type="submit" >Save</button>
+                </form>
+      </div>
        
+      //    <Card style={{ width: '18rem' }}>
+      //    <Card.Img variant="top" src="https://thumbs.dreamstime.com/b/video-game-controller-doodle-hand-drawn-vector-illustration-63395075.jpg" />
+      //    <Card.Body>
+      //      <Card.Title>{game.name}</Card.Title>
+      //      <Card.Text>
+          
+      //      </Card.Text>
+      //    </Card.Body>
+      //  </Card>
+        
     )
 }
 
