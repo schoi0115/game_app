@@ -14,31 +14,57 @@ const Equipment = () => {
       }, []);
 // console.log(equipment)
 
+const [randomEquipment, setrandomEquipment] = useState([])
+
+useEffect(() => {
+   handleClick()
+  }, []);
+
+
+const handleClick = () => {
+    fetch("http://localhost:9292/equipmentrandom")
+    .then((r) => r.json())
+    .then((randomEquipment) => setrandomEquipment(randomEquipment));
+}
+
     return (
-        <div>
-            {/* <Card style={{ width: '18rem' }}>
-            {equipment.map(equipment=> (
-                <>
-                <Card.Img variant="top" src={equipment.image_url}/>
-                 <Card.body>
-                 <Card.title>{equipment.name}</Card.title>
-                 <Card.text>{equipemnt} </Card.text>
-                </Card.body>
-                
-                <h4>Price: {equipment.price}</h4>
-                </>
+        
+<div>
+   
+    <div className="move">
+        
+        <div className="test" xs={3}>
+      <div className="somethingnewtitle">
+      <ul style={{listStyle: "none"}}><li>Discover</li><li>Something</li>  <li>New</li></ul>
+      
+      <div className="cardz">
+      <img src={randomEquipment.image_url} style={{width:"300px", height:"200px"}}></img>
+                <p>{randomEquipment.name}</p>
+                <p>Price: {randomEquipment.price}</p>
+                <button onClick={handleClick}>Click Me! </button>
+                </div>
+                </div>
+      </div>
+     </div>
+     
+      
+    
+        <p className="titleproduct">Products</p>
+    
+        <div className="body">
+             {equipment.map(equipment=> (
+                <div className="boxofcard">
+               <div className="card">
+                <img src={equipment.image_url} style={{width:"200px", height:"200px"}}></img>
+                <p>{equipment.name}</p>
+                <p>Price: {equipment.price}</p>
+                </div>
+                </div>
             ))}
-            </Card> */}
-        </div>
+            </div>
+           </div>
     )
 }
 
 export default Equipment
 
-//reqs:
-//create front end route to house back end data route (also create backend route)
-//cards- CRD
-//search
-
-// stretch goals: 
-//filter buttons/component 
