@@ -11,9 +11,11 @@ import Equipment from './components/Equipment'
 
 function App() {
   return (
+    
     <Router>
       <Navbar />
       <Switch>
+     
       <Route exact path ="/" component={Body}/>
         <Route path="/equipment">
          <Equipment/>

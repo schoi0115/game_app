@@ -51,8 +51,9 @@ const GameList = ({game, deleteItem, onUpdateGame}) => {
 
     return (
     
-    <div className="container p-4 shadow text-center flex flex-col justify-between">
-        <div >
+    <div >
+      <div>
+          
       
       <img src={game.image} alt={game.name}></img>
       
@@ -114,10 +115,7 @@ const GameList = ({game, deleteItem, onUpdateGame}) => {
                 ) : (
                   null)
                     }
-                  
-       
-               
-                  
+
     
             </div>
           </div>

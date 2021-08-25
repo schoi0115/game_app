@@ -11,8 +11,7 @@ const Body = () => {
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
     const [genre, setGenre] = useState("");
-
-
+    const [loging, setLoging] = useState(false)
 
     useEffect(() => {
         fetch("http://localhost:9292/games")
@@ -24,7 +23,6 @@ const Body = () => {
         const deleteItem = games.filter(game => game.id !== id)
         setGames(deleteItem)
     }
-
 
     function onAddGame(newGame) {
         const updatedGameArray = [...games, newGame];
@@ -59,17 +57,30 @@ const Body = () => {
         });
         setGames(updatedGamesArray);
       }
+      function handleLogIn(e){
+        e.preventDefault()
+        console.log(e.target)
+      }
 
+      function logInPage(){
+        setLoging(!loging)
+      }
+      function logOutPage(){
+        setLoging(!loging)
+      }
 
-
-   
+      
     return (
         <div>
-           
-           <Randomizer/>
 
+        {loging? 
+        (<div>
+            
+        <Randomizer/>
+        <div className="logOut">
+    <button className="logoutButton" onClick={logOutPage}>Log out</button>
+      </div>
            <div>
-              
                 <form onSubmit={handleSubmit} className="centering">
                 <input
                 type="text"
@@ -105,23 +116,40 @@ const Body = () => {
                 <div>
                 <button type="submit">Save</button>
                 </div>
-       
             </div>
-
             <h1 className="centering">Game List </h1>
+            <div className="cardTable">
             {games.map(game => (
-                <>
-                    <GameList className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"
+                <div className="cardPadding">
+                    <GameList 
                     key={games.id}
                     game={game}
                     deleteItem={deleteItem}
                     setGame={setGames}
                     onUpdateGame={onUpdateGame}
-     
                     />
-    
-                </>
+                    
+                </div>
             ))}
+            </div>
+            </div>
+             ) : (
+    <div className="center">   
+      <form onSubmit={handleLogIn}>
+        <h1>Log In</h1>
+        <div className="form-container">
+          <label > Username </label>
+          <input  className="bottom-spacing" placeholder = "ID ..."/>
+          <label >Password</label>
+          <input type="password" className="bottom-spacing-button" placeholder = "Password ..." />
+
+            <div className="form-container">
+              <button onClick={logInPage}>Log In</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    )}
         </div>
     )
 }
