@@ -5,30 +5,20 @@ import {
   Route,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
-// import WishlistContainer from './components/WishlistContainer';
-import FrontPageContainer from './components/FrontPageContainer';
 import Body from './components/Body';
-import Searchbar from './components/Searchbar';
 import Equipment from './components/Equipment'
 
 function App() {
   return (
+    
     <Router>
       <Navbar />
       <Switch>
-      <Route exact path ="/" exact component={Body}/>
-        <Route path="/wishes">
-          {/* <WishlistContainer /> */}
-        </Route>
-        {/* <Route path="/">
-          <FrontPageContainer />
-        </Route> */}
-        {/* <Route path ="/equipment" exact component={Equipment}/> */}
+      <Route exact path ="/" component={Body}/>
         <Route path="/equipment">
          <Equipment/>
         </Route>
-      </Switch>
-      {/* <Body/> */}
+      </Switch>  
     </Router>
    
   );

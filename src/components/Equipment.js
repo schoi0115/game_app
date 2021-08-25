@@ -67,4 +67,3 @@ const handleClick = () => {
 }
 
 export default Equipment
-
