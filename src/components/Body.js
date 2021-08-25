@@ -36,7 +36,7 @@ const Body = () => {
             {games.map(game => (
                 <>
                     <GameList 
-                    game={search}
+                    game={game}
                     deleteItem={deleteItem}
                     // searchItems={searchItems}
                     />

@@ -5,7 +5,7 @@ import {Container,Row, Col, Card} from 'react-bootstrap'
 
 
 
-const GameList = ({game, setGames, deleteItem, onUpdateGame}) => {
+const GameList = ({game, setGames, deleteItem, onUpdateGame, search}) => {
 
   const [updatedName, setUpdatedName] = useState("");
   const [upDatedReleaseDate, setUpdatedReleaseDate] = useState("");

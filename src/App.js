@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import FrontPageContainer from './components/FrontPageContainer';
 import Body from './components/Body';
 import Searchbar from './components/Searchbar';
+import Equipment from './components/Equipment'
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path="/">
           <FrontPageContainer />
+        </Route>
+        <Route path="/equipment">
+          <Equipment/>
         </Route>
       </Switch>
       <Body/>
