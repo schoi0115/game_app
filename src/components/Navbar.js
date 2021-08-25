@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div className='centering'>
       <nav className= "NavLink">
-        <NavLink to="/">Front</NavLink>
+        <NavLink to="/">Home</NavLink>
         <NavLink  to="/wishes">Wishes</NavLink>
         <NavLink  to="/equipment">Equipment</NavLink>
       </nav>

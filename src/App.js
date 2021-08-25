@@ -16,20 +16,24 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
+      <Route exact path ="/" exact component={Body}/>
         <Route path="/wishes">
           {/* <WishlistContainer /> */}
         </Route>
-        <Route path="/">
+        {/* <Route path="/">
           <FrontPageContainer />
-        </Route>
+        </Route> */}
+        {/* <Route path ="/equipment" exact component={Equipment}/> */}
         <Route path="/equipment">
-          <Equipment/>
+         <Equipment/>
         </Route>
       </Switch>
-      <Body/>
+      {/* <Body/> */}
     </Router>
    
   );
 }
 
 export default App;
+
+// <Body/> component to exact path route
