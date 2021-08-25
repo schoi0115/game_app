@@ -123,6 +123,7 @@ const Body = () => {
                 <div className="cardPadding">
                     <GameList 
                     key={games.id}
+
                     game={game}
                     deleteItem={deleteItem}
                     setGame={setGames}

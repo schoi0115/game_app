@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Body from './components/Body';
-
 import Equipment from './components/Equipment'
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-     
       <Route exact path ="/" component={Body}/>
         <Route path="/equipment">
          <Equipment/>
@@ -27,3 +25,5 @@ function App() {
 }
 
 export default App;
+
+// <Body/> component to exact path route
