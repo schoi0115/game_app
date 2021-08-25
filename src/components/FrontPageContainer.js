@@ -1,17 +1,11 @@
-import { Switch, Route } from 'react-router-dom';
-
-
 function FrontPageContainer() {
 
 
   
     return (
       <div className='centering'>
-        <h1>Front Page</h1>
-        <li>game title</li> 
-        <li>game release date</li> 
-        <li>game likes</li> 
-        <li>seed image</li> 
+        <h1>Welcome to the application</h1>
+
     
       </div>
     );
