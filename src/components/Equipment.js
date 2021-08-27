@@ -7,6 +7,7 @@ import {Container,Row, Col, Card} from 'react-bootstrap'
 
 const Equipment = () => {
     const [equipment, setEquipment] = useState([]);
+    const [ereview, setereview] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:9292/equipment")
@@ -16,6 +17,12 @@ const Equipment = () => {
 // console.log(equipment)
 
 const [randomEquipment, setrandomEquipment] = useState([])
+
+useEffect(() => {
+    fetch("http://localhost:9292/ereviews")
+      .then(res => res.json())
+      .then(setereview);
+  }, []);
 
 useEffect(() => {
    handleClick()
@@ -28,6 +35,12 @@ const handleClick = () => {
     .then((randomEquipment) => setrandomEquipment(randomEquipment));
 }
 
+const hiReview = ereview.map(ereviews => (
+    <div>
+        {ereviews.comment}
+    </div>
+    ))
+
     return (
         
 <div>
@@ -39,6 +52,7 @@ const handleClick = () => {
       <ul style={{listStyle: "none"}}><li>Discover</li><li>Something</li>  <li>New</li></ul>
       
       <div className="cardz">
+         
       <img src={randomEquipment.image_url} style={{width:"300px", height:"200px"}}></img>
                 <p>{randomEquipment.name}</p>
                 <p>Price: {randomEquipment.price}</p>
@@ -51,14 +65,17 @@ const handleClick = () => {
       
     
         <p className="titleproduct">Products</p>
-    
         <div className="body">
              {equipment.map(equipment=> (
                 <div className="boxofcard" key ={equipment.id}>
                     <div className="card">
+                        
                         <img src={equipment.image_url} style={{width:"200px", height:"150px"}}></img>
                             <p>{equipment.name}</p>
                             <p>Price: {equipment.price}</p>
+                            {hiReview}
+                      
+                    
                     </div>
                 </div>
             ))}

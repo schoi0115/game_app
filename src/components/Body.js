@@ -110,10 +110,10 @@ const Body = () => {
     }
       
     return (
+//         <div>
+// {/* 
+//         {loging?  */}
         <div>
-
-        {loging? 
-        (<div>
             
         
         <div className="logOut">
@@ -178,40 +178,7 @@ const Body = () => {
             </div>
              
             
-             ) : (
-            <div className="center">   
-              <form onSubmit={handleLogIn}>
-                <h1>Log In</h1>
-                <div className="form-container">
-                  <label > Username </label>
-                  <input  className="bottom-spacing" placeholder = "ID ..."/>
-                  <label >Password</label>
-                  <input type="password" className="bottom-spacing-button" placeholder = "Password ..." />
-
-                    <div className="form-container">
-                      <button onClick={logInPage}>Log In</button>
-                      <button onClick={createIdPage}>{!loging? "Create ID": "Close"}</button>
-                      <form onSubmit={handleUserSubmit} className="centering">
-                        <input
-                        type="text"
-                        placeholder="Create ID"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        />
-                        <input
-                        type="text"
-                        placeholder="Create Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <button type="submit">Create</button>
-                      </form>
-                    </div>
-                </div>
-              </form>
-            </div>
-    )}
-        </div>
+  
     )
 }
 
