@@ -46,9 +46,10 @@ nav a:active {
  .centeringButton {
   justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 450px;
-  top: 62px;
+  position: relative;
+  left: 1350px;
+  bottom: 25px;
+
  }
 
 
