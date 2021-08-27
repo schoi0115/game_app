@@ -1,11 +1,10 @@
-// import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import {Container,Row, Col, Card,Button} from 'react-bootstrap'
+import {Card,Button} from 'react-bootstrap'
 import { useState, useEffect } from 'react'
-import CardHeader from 'react-bootstrap/esm/CardHeader'
-// import GameList from './GameList'
 
-const Randomizer = ({game, deleteItem}) => {
+
+
+const Randomizer = () => {
 
     const [randomData, setRandomData] = useState([])
 
@@ -13,7 +12,11 @@ const Randomizer = ({game, deleteItem}) => {
        handleClick()
       }, []);
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin
     const handleClick = () => {
         fetch("http://localhost:9292/random")
         .then((r) => r.json())
@@ -21,17 +24,23 @@ const Randomizer = ({game, deleteItem}) => {
     }
    
     return (
-        <>
-        <h3>What should I play today?</h3>
+        <div className="cetering">
         <Card style={{ width: '18rem' }}>
+        
+        <h3>What should I play today?</h3>
+        <br />
         <h3>{randomData.name}</h3>
         <h3>Release Date:{randomData.release_date}</h3>
         <h3>Price:{randomData.price}</h3>
+        <Button onClick={handleClick}> Tell me!</Button>  
         </Card>
-         <Button onClick={handleClick}> Tell me!</Button>        
-         </>
-
             
+         </div>
+
+<<<<<<< HEAD
+            
+=======
+>>>>>>> origin
     )
 }
 

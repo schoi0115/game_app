@@ -8,6 +8,7 @@ const GameCard = ({game,handleDeleteClick}) => {
         <>
        {game.map(game => {
         //    console.log(game.name)
+        {game.id}
            <li>{game.name}</li>
        })}
             {/* <Card style={{ width: '18rem' }}>
