@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 import GameList from './GameList';
 
@@ -13,23 +12,12 @@ const Body = () => {
     const [genre, setGenre] = useState("");
     const [loging, setLoging] = useState(false)
 
-    const [newUser, setNewUser] = useState([]);
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-
 
     useEffect(() => {
         fetch("http://localhost:9292/games")
           .then((r) => r.json())
           .then((games) => setGames(games));
       }, []);
-
-      useEffect(() => {
-        fetch("http://localhost:9292/users")
-          .then((r) => r.json())
-          .then((user) => setNewUser(user));
-      }, []);
-
 
       function deleteItem(id) {
         const deleteItem = games.filter(game => game.id !== id)
@@ -39,11 +27,6 @@ const Body = () => {
     function onAddGame(newGame) {
         const updatedGameArray = [...games, newGame];
         setGames(updatedGameArray);
-      }
-
-      function onAddUser(newUsers) {
-        const updatedUserArray = [...newUser, newUsers];
-        setNewUser(updatedUserArray);
       }
 
     function handleSubmit(e) {
@@ -75,39 +58,13 @@ const Body = () => {
         });
         setGames(updatedGamesArray);
       }
-      function handleLogIn(e){
-        e.preventDefault()
-        console.log(e.target)
-      }
-      function logInPage(){
-        setLoging(!loging)
-      }
+     
       function logOutPage(){
         setLoging(!loging)
       }
 
-      const handleUserSubmit = async (event) =>  {
-        event.preventDefault();
-        const body = JSON.stringify({
-          username,
-          password,
-        });
+       
 
-        const res = await fetch ("http://localhost:9292/users", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body
-        })
-        const newUser = await res.json();
-        onAddUser(newUser)
-
-    }
-    function createIdPage(){
-      setLoging(!loging)
-    }
-      
     return (
         <div>
         <div className="logOut">
@@ -124,13 +81,13 @@ const Body = () => {
                 />
                 <input
                 type="text"
-                placeholder="Price"
+                placeholder="Date"
                 value={releaseDate}
                 onChange={(e) => setReleaseDate(e.target.value)}
                 />
                 <input
                 type="number"
-                placeholder="Date"
+                placeholder="Price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 />
@@ -146,16 +103,17 @@ const Body = () => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
                 />
+                <button type="submit" className="centeringBtn">Save</button>
                 </form>
                 <div>
-                <button type="submit" className="centeringButton">Save</button>
+                
                 </div>
             </div>
-            <h1 className="centering">Game List </h1>
+            <h1 className="centeringBack"></h1>
             <div className="cardTable">
             {games.map(game => (
-                <div className="cardPadding">
-                    <GameList 
+                <div classNmae="everything">
+                    <GameList
                     key={games.id}
                     game={game}
                     deleteItem={deleteItem}

@@ -18,7 +18,7 @@ const EquipmentHero = () => {
                  <div className="somethingnewtitle">
                     <ul style={{listStyle: "none"}}><li>Discover</li><li>Something</li><li>New</li></ul>
                     <div className="cardz">
-                        <img src={randomEquipment.image_url} style={{width:"300px", height:"200px"}}></img>
+                        <img src={randomEquipment.image_url} style={{width:"400px", height:"400px"}}></img>
                         <p>{randomEquipment.name}</p>
                         <p>Price: {randomEquipment.price}</p>
                         <button onClick={handleClick}>Click Me! </button>

@@ -52,7 +52,7 @@ const GameList = ({game, deleteItem, onUpdateGame}) => {
     return (
     
     <div className="cardIndv">
-      <div>
+      <div className="cardOnly">
           
       
       <img src={game.image} alt={game.name}></img>

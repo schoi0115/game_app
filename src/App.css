@@ -20,8 +20,14 @@
   transform: translateY(-50%);
 }
 
+
 nav {
-  background-color: lightblue;
+  background-image: url("https://www.ksnt.com/wp-content/uploads/sites/86/2020/12/Fire-House-Structure-Blaze.png?strip=1");
+  
+  height: 100px;
+
+  opacity: 0.5;
+ 
 }
 
 
@@ -40,9 +46,29 @@ nav a:active {
   border-bottom: 2px solid rgb(105, 106, 109);
 }
 
+.centeringBack{
+  position: absolute;
+  background-image: url("");
+  height: 5000px;
+  width: 1900px;
+  background-repeat: inherit;
+
+
+  left:0px;
+  top:0px;
+  z-index:-1;
+  opacity: 0.7;
+
+
+}
 .centering {
   text-align: center;
-  }
+  padding-top: .2%;
+}
+.centeringBtn{
+  text-align: center;
+}
+
  .centeringButton {
   justify-content: center;
   align-items: center;
@@ -71,7 +97,6 @@ nav a:active {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   padding-bottom: 5%;
@@ -82,7 +107,13 @@ nav a:active {
   padding: 5em;
   text-align: center;
 
+  background: rgba(100%,100%,100%,0.5);
+  
+ 
+
 }
+
+
 
 img {
 
@@ -158,3 +189,7 @@ img {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+
+.everything{
+  background-image: url("http://pixeljoint.com/files/icons/full/asdf__r1915390541.png");
+}

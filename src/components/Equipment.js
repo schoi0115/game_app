@@ -31,12 +31,6 @@ const handleClick = () => {
     .then((randomEquipment) => setrandomEquipment(randomEquipment));
 }
 
-const hiReview = ereview.map(ereviews => (
-    <div>
-        {ereviews.comment}
-    </div>
-    ))
-
     return (
     <div>   
         <EquipmentHero/>
