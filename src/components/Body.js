@@ -1,8 +1,7 @@
 
 import { useState, useEffect } from 'react'
 import GameList from './GameList';
-import Randomizer from './Randomizer';
-import Equipment from './Equipment';
+
 
 
 const Body = () => {
@@ -110,12 +109,7 @@ const Body = () => {
     }
       
     return (
-//         <div>
-// {/* 
-//         {loging?  */}
         <div>
-            
-        
         <div className="logOut">
           <button className="logoutButton" onClick={logOutPage}>Log out</button>
 
@@ -163,22 +157,15 @@ const Body = () => {
                 <div className="cardPadding">
                     <GameList 
                     key={games.id}
-
                     game={game}
                     deleteItem={deleteItem}
                     setGame={setGames}
                     onUpdateGame={onUpdateGame}
-                    />
-                    
-                </div>
-                
+                    />  
+                </div>  
             ))}
             </div>
-            <Randomizer/>
             </div>
-             
-            
-  
     )
 }
 
