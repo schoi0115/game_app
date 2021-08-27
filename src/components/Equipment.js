@@ -4,9 +4,10 @@ import '../Equipment.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Container,Row, Col, Card} from 'react-bootstrap'
 
+
 const Equipment = () => {
     const [equipment, setEquipment] = useState([]);
-  
+
     useEffect(() => {
         fetch("http://localhost:9292/equipment")
           .then(res => res.json())
@@ -53,12 +54,12 @@ const handleClick = () => {
     
         <div className="body">
              {equipment.map(equipment=> (
-                <div className="boxofcard">
-               <div className="card">
-                <img src={equipment.image_url} style={{width:"200px", height:"200px"}}></img>
-                <p>{equipment.name}</p>
-                <p>Price: {equipment.price}</p>
-                </div>
+                <div className="boxofcard" key ={equipment.id}>
+                    <div className="card">
+                        <img src={equipment.image_url} style={{width:"200px", height:"150px"}}></img>
+                            <p>{equipment.name}</p>
+                            <p>Price: {equipment.price}</p>
+                    </div>
                 </div>
             ))}
             </div>

@@ -51,7 +51,7 @@ const GameList = ({game, deleteItem, onUpdateGame}) => {
 
     return (
     
-    <div >
+    <div className="cardIndv">
       <div>
           
       
@@ -60,7 +60,7 @@ const GameList = ({game, deleteItem, onUpdateGame}) => {
       <br />
       <h5>Game Name: {game.name}</h5>
 
-      <h5>Release Date{game.release_date}</h5>
+      <h5>Release Date: {game.release_date}</h5>
   
       <h5>Price: ${game.price}</h5>
 
@@ -79,7 +79,7 @@ const GameList = ({game, deleteItem, onUpdateGame}) => {
                     value={updatedName}
                     onChange={(e) => setUpdatedName(e.target.value)}
                     />
-   <br />
+<br />
                     <input
                     type="text"
                     placeholder="Date"
@@ -93,21 +93,21 @@ const GameList = ({game, deleteItem, onUpdateGame}) => {
                     value={updatedPrice}
                     onChange={(e) => setUpdatedPrice(e.target.value)}
                     />
-       <br />
+<br />
                     <input
                     type="string"
                     placeholder="Image"
                     value={updateImage}
                     onChange={(e) => setupdateImage(e.target.value)}
                     />
-         <br />
+<br />
                       <input
                     type="string"
                     placeholder="Genre"
                     value={updateUpdateGenre}
                     onChange={(e) => setUpdateUpdateGenre(e.target.value)}
                     />
-                    <br />
+<br />
                     <button type="submit" >Save</button>
                     
                   </form>

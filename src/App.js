@@ -19,6 +19,7 @@ function App() {
          <Equipment/>
         </Route>
       </Switch>  
+
     </Router>
    
   );

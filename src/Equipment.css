@@ -17,7 +17,15 @@
 .card{
     background-color: #f6f6f6;
     background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
 }
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
 
 .titleproduct{
     padding-left: 40%;
@@ -53,4 +61,10 @@ padding-left: 20%;
 margin-top: 4%;
 
 
+}
+
+img {
+
+    width: 200px;
+    height: 150px;
 }
