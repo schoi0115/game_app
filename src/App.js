@@ -10,16 +10,14 @@ import Equipment from './components/Equipment'
 
 function App() {
   return (
-    
     <Router>
       <Navbar />
       <Switch>
-      <Route exact path ="/" component={Body}/>
+      <Route exact path ="/" exact component={Body}/>
         <Route path="/equipment">
          <Equipment/>
         </Route>
       </Switch>  
-
     </Router>
    
   );
